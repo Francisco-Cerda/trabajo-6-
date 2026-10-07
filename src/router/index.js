@@ -1,0 +1,17 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import InicioView from '../views/InicioView.vue'
+import ListaLibros from '../views/ListaLibros.vue'
+import DetalleLibro from '../views/DetalleLibro.vue'
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', name: 'inicio', component: InicioView },
+    { path: '/libros', name: 'libros', component: ListaLibros },
+    { path: '/libros/:id', name: 'detalle-libro', component: DetalleLibro, props: true },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
+  ],
+  scrollBehavior: () => ({ top: 0 }),
+})
+
+export default router
